@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    <table class="table">  <!--copy class=table and scope="col" from bootstrap -->
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in current_stock %}
+            <tr>
+                <td>{{ i.symbol }}</td>
+                <td>{{ i.shares }}</td>
+                <td>${{ i.price }}</td>
+
+
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>Cash</td>
+                <td></td>
+                <td></td>
+                <td>${{ current_cash }}</td> <!-- grab the value of current_cash-->
+            </tr>
+        </tbody>
+
+    </table>
+{% endblock %}
